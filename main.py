@@ -34,9 +34,29 @@ def listar_items(datos):
     for item in datos:
         print(f"Código: {item['codigo']}, Título: {item['titulo']}, Autor: {item['autor']}, Disponible: {item['cantidad_disponible']}/{item['cantidad_total']}")
 
+def registrar_prestamo(datos):
+    codigo = input("Ingrese el código a prestar: ")
+    for item in datos:
+        if item['codigo'] == codigo and item['cantidad_disponible'] > 0:
+            item['cantidad_disponible'] -= 1
+            guardar_datos(datos)
+            print("Préstamo exitoso.")
+            return
+    print("Ítem no disponible.")
+
+def registrar_devolucion(datos):
+    codigo = input("Ingrese el código a devolver: ")
+    for item in datos:
+        if item['codigo'] == codigo and item['cantidad_disponible'] < item['cantidad_total']:
+            item['cantidad_disponible'] += 1
+            guardar_datos(datos)
+            print("Devolución exitosa.")
+            return
+    print("Error en devolución.")
+
 def mostrar_menu():
     print("\n==========================================")
-    print("--- SISTEMA BIBLIOSTOCK ---")
+    print("--- BIBLIOSTOCK CLI - BIBLIOTECA HORIZONTE ---")
     print("==========================================")
     print("1. Registrar ítem")
     print("2. Listar ítems")
@@ -55,6 +75,10 @@ def main():
             registrar_item(datos)
         elif opcion == '2':
             listar_items(datos)
+        elif opcion == '4':
+            registrar_prestamo(datos)
+        elif opcion == '5':
+            registrar_devolucion(datos)
         elif opcion == '6':
             print("Saliendo del sistema...")
             break
