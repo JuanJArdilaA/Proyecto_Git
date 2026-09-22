@@ -36,7 +36,6 @@ def listar_items(datos):
     for item in datos:
         print(f"[{item['codigo']}] {item['titulo']} por {item['autor']} - Disponibles: {item['cantidad_disponible']}/{item['cantidad_total']}")
 
-# NUEVA FUNCIÓN AGREGADA POR JUAN
 def buscar_item(datos):
     print("\n--- Buscar Ítem ---")
     termino = input("Ingrese el título o código del ítem a buscar: ").lower()
