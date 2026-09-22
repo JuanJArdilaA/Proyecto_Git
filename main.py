@@ -4,8 +4,13 @@ import os
 ARCHIVO_JSON = 'inventario.json'
 
 def cargar_datos():
-    with open(ARCHIVO_JSON, 'r') as file:
-        return json.load(file)
+    if not os.path.exists(ARCHIVO_JSON):
+        return []
+    try:
+        with open(ARCHIVO_JSON, 'r') as file:
+            return json.load(file)
+    except json.JSONDecodeError:
+        return [] 
 
 def guardar_datos(datos):
     with open(ARCHIVO_JSON, 'w') as file:
