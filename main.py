@@ -56,7 +56,7 @@ def registrar_devolucion(datos):
 
 def mostrar_menu():
     print("\n==========================================")
-    print("BIBLIOTECA DE CLETUS") 
+    print("--- BIBLIOSTOCK CLI - BIBLIOTECA HORIZONTE ---")
     print("==========================================")
     print("1. Registrar ítem")
     print("2. Listar ítems")
