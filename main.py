@@ -36,7 +36,7 @@ def listar_items(datos):
 
 def mostrar_menu():
     print("\n==========================================")
-    print("BIBLIOSTOCK CLI - BIBLIOTECA HORIZONTE") 
+    print("--- SISTEMA BIBLIOSTOCK ---")
     print("==========================================")
     print("1. Registrar ítem")
     print("2. Listar ítems")
